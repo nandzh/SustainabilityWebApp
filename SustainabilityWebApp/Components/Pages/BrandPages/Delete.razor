@@ -33,6 +33,12 @@
             <dt class="col-sm-2">Average Price</dt>
             <dd class="col-sm-10">@brand.AveragePrice</dd>
         </dl>
+
+        <dl class="row">
+            <dt class="col-sm-2">Rating</dt>
+            <dd class="col-sm-10">@brand.Rating</dd>
+        </dl>
+
         <EditForm method="post" Model="brand" OnValidSubmit="DeleteBrand" FormName="delete" Enhance>
             <button type="submit" class="btn btn-danger" disabled="@(brand is null)">Delete</button> |
             <a href="/brands">Back to List</a>

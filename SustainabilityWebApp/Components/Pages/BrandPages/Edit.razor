@@ -39,9 +39,29 @@ else
                 </div>
                 <div class="mb-3">
                     <label for="averageprice" class="form-label">Average Price:</label>
-                    <InputNumber id="averageprice" @bind-Value="Brand.AveragePrice" class="form-control" />
+                    <InputSelect id="averageprice" @bind-Value="Brand.AveragePrice" class="form-control">
+                        <option value="">-- Select price tier --</option>
+                        <option value="$">$</option>
+                        <option value="$$">$$</option>
+                        <option value="$$$">$$$</option>
+                        <option value="$$$$">$$$$</option>
+                    </InputSelect>
                     <ValidationMessage For="() => Brand.AveragePrice" class="text-danger" />
                 </div>
+
+                <div class="mb-3">
+                    <label for="rating" class="form-label">Rating:</label>
+                    <InputSelect id="rating" @bind-Value="Brand.Rating" class="form-control">
+                        <option value="">-- Select a rating --</option>
+                        <option value="Terrible">Terrible</option>
+                        <option value="Bad">Bad</option>
+                        <option value="Getting There">Getting There</option>
+                        <option value="Good">Good</option>
+                        <option value="Amazing">Amazing</option>
+                    </InputSelect>
+                    <ValidationMessage For="() => Brand.Rating" class="text-danger" />
+                </div>
+
                 <button type="submit" class="btn btn-primary">Save</button>
             </EditForm>
         </div>

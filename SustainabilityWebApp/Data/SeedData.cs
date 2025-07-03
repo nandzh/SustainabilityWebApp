@@ -28,42 +28,48 @@ namespace SustainabilityWebApp.Data
                     Name = "Nike",
                     FoundedDate = new DateOnly(1111, 11, 11),
                     Score = 1,
-                    AveragePrice = 1
+                    AveragePrice = "$",
+                    Rating = "Bad"
                 },
                 new Brand
                 {
                     Name = "Lacoste",
                     FoundedDate = new DateOnly(1111, 11, 11),
                     Score = 1,
-                    AveragePrice = 1
+                    AveragePrice = "$",
+                    Rating = "Bad"
                 },
                 new Brand
                 {
                     Name = "Puma",
                     FoundedDate = new DateOnly(1111, 11, 11),
                     Score = 1,
-                    AveragePrice = 1
+                    AveragePrice = "$",
+                    Rating = "Bad"
                 },
                 new Brand
                 {
                     Name = "Gucci",
                     FoundedDate = new DateOnly(1111, 11, 11),
                     Score = 1,
-                    AveragePrice = 1
+                    AveragePrice = "$",
+                    Rating = "Bad"
                 },
                 new Brand
                 {
                     Name = "Dolce & Gabanna",
                     FoundedDate = new DateOnly(1111, 11, 11),
                     Score = 1,
-                    AveragePrice = 1
+                    AveragePrice = "$",
+                    Rating = "Bad"
                 },
                 new Brand
                 {
                     Name = "Louis Vitton",
                     FoundedDate = new DateOnly(1111, 11, 11),
                     Score = 1,
-                    AveragePrice = 1
+                    AveragePrice = "$",
+                    Rating = "Bad"
                 }
                 );
             context.SaveChanges();

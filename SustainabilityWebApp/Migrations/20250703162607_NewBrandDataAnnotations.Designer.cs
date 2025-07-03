@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SustainabilityWebApp.Data;
 
@@ -11,9 +12,11 @@ using SustainabilityWebApp.Data;
 namespace SustainabilityWebApp.Migrations
 {
     [DbContext(typeof(SustainabilityWebAppContext))]
-    partial class SustainabilityWebAppContextModelSnapshot : ModelSnapshot
+    [Migration("20250703162607_NewBrandDataAnnotations")]
+    partial class NewBrandDataAnnotations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,9 +33,8 @@ namespace SustainabilityWebApp.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("AveragePrice")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal>("AveragePrice")
+                        .HasColumnType("decimal(18, 2)");
 
                     b.Property<DateOnly>("FoundedDate")
                         .HasColumnType("date");
@@ -41,10 +43,6 @@ namespace SustainabilityWebApp.Migrations
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("Rating")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<float>("Score")
                         .HasColumnType("real");

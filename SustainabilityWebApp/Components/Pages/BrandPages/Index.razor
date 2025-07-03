@@ -10,15 +10,23 @@
 
 <h1>Index</h1>
 
+<div>
+    <form action="/brands" data-enhance data-permanent>
+        <input type="search" name="nameFilter" />
+        <input type="submit" value="Search" />
+        </form>
+</div>
+
 <p>
     <a href="brands/create">Create New</a>
 </p>
 
-<QuickGrid Class="table" Items="context.Brand">
+<QuickGrid Class="table" Items="FilteredBrands">
     <PropertyColumn Property="brand => brand.Name" />
     <PropertyColumn Property="brand => brand.FoundedDate" Title="Founded Date"/>
     <PropertyColumn Property="brand => brand.Score" />
     <PropertyColumn Property="brand => brand.AveragePrice" Title="Average Price" />
+    <PropertyColumn Property="brand => brand.Rating" />
 
     <TemplateColumn Context="brand">
         <a href="@($"brands/edit?id={brand.Id}")">Edit</a> |
@@ -36,4 +44,10 @@
     }
 
     public async ValueTask DisposeAsync() => await context.DisposeAsync();
+
+    [SupplyParameterFromQuery]
+    private string? NameFilter { get; set; }
+
+    private IQueryable<Brand> FilteredBrands =>
+    context.Brand.Where(m => m.Name!.Contains(NameFilter ?? string.Empty));
 }
