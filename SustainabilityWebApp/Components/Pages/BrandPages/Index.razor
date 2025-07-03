@@ -16,9 +16,9 @@
 
 <QuickGrid Class="table" Items="context.Brand">
     <PropertyColumn Property="brand => brand.Name" />
-    <PropertyColumn Property="brand => brand.FoundedDate" />
+    <PropertyColumn Property="brand => brand.FoundedDate" Title="Founded Date"/>
     <PropertyColumn Property="brand => brand.Score" />
-    <PropertyColumn Property="brand => brand.AveragePrice" />
+    <PropertyColumn Property="brand => brand.AveragePrice" Title="Average Price" />
 
     <TemplateColumn Context="brand">
         <a href="@($"brands/edit?id={brand.Id}")">Edit</a> |
