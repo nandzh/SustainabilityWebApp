@@ -1,0 +1,39 @@
+﻿@page "/brands"
+@using Microsoft.EntityFrameworkCore
+@using Microsoft.AspNetCore.Components.QuickGrid
+@using SustainabilityWebApp.Models
+@using SustainabilityWebApp.Data
+@implements IAsyncDisposable
+@inject IDbContextFactory<SustainabilityWebApp.Data.SustainabilityWebAppContext> DbFactory
+
+<PageTitle>Index</PageTitle>
+
+<h1>Index</h1>
+
+<p>
+    <a href="brands/create">Create New</a>
+</p>
+
+<QuickGrid Class="table" Items="context.Brand">
+    <PropertyColumn Property="brand => brand.Name" />
+    <PropertyColumn Property="brand => brand.FoundedDate" />
+    <PropertyColumn Property="brand => brand.Score" />
+    <PropertyColumn Property="brand => brand.AveragePrice" />
+
+    <TemplateColumn Context="brand">
+        <a href="@($"brands/edit?id={brand.Id}")">Edit</a> |
+        <a href="@($"brands/details?id={brand.Id}")">Details</a> |
+        <a href="@($"brands/delete?id={brand.Id}")">Delete</a>
+    </TemplateColumn>
+</QuickGrid>
+
+@code {
+    private SustainabilityWebAppContext context = default!;
+
+    protected override void OnInitialized()
+    {
+        context = DbFactory.CreateDbContext();
+    }
+
+    public async ValueTask DisposeAsync() => await context.DisposeAsync();
+}
