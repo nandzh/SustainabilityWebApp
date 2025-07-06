@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SustainabilityWebApp.Data;
 
@@ -10,9 +11,11 @@ using SustainabilityWebApp.Data;
 namespace SustainabilityWebApp.Migrations.SustainabilityWebApp
 {
     [DbContext(typeof(SustainabilityWebAppContext))]
-    partial class SustainabilityWebAppContextModelSnapshot : ModelSnapshot
+    [Migration("20250706194036_UpdateBrandEntity")]
+    partial class UpdateBrandEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

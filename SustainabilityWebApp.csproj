@@ -18,7 +18,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\" />
+    <_ContentIncludedByDefault Remove="Components\Pages\BrandPages\Create.razor" />
+    <_ContentIncludedByDefault Remove="Components\Pages\BrandPages\Delete.razor" />
+    <_ContentIncludedByDefault Remove="Components\Pages\BrandPages\Details.razor" />
+    <_ContentIncludedByDefault Remove="Components\Pages\BrandPages\Edit.razor" />
+    <_ContentIncludedByDefault Remove="Components\Pages\BrandPages\Index.razor" />
   </ItemGroup>
 
 </Project>

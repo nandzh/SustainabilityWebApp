@@ -7,22 +7,36 @@ namespace SustainabilityWebApp.Models
     public class Brand
     {
         public int Id { get; set; }
+        
         [Required]
         [StringLength(50, MinimumLength = 2)]
         public string? Name { get; set; }
-        public DateOnly FoundedDate { get; set; }
-
+        
+        public string CountryOfOrigin { get; set; }
+        
         [Required]
-        [RegularExpression(@"^(10(\.0+)?|[1-9](\.\d+)?)$", ErrorMessage = "Enter a number between 1 and 10")]
-        public float Score { get; set; }
-
+        [RegularExpression(@"^(10(\.0+)?|[1-5](\.\d+)?)$", ErrorMessage = "Enter a number between 1 and 5")]
+        public double PlanetSustainabilityRate { get; set; }
+        
+        [Required]
+        [RegularExpression(@"^(10(\.0+)?|[1-5](\.\d+)?)$", ErrorMessage = "Enter a number between 1 and 5")]
+        public double PeopleRate { get; set; }
+        
+        [Required]
+        [RegularExpression(@"^(10(\.0+)?|[1-5](\.\d+)?)$", ErrorMessage = "Enter a number between 1 and 5")]
+        public double AnimalCrueltyRate { get; set; }
+        
         [Required]
         [RegularExpression(@"^\${1,4}$", ErrorMessage = "Select between one and four dollar signs.")]
-        public string AveragePrice { get; set; } = string.Empty;
-
+        public int PricingRate { get; set; } // 1 to 4 for $ to $$$$
+        
         [Required]
-        [RegularExpression(@"^(Terrible|Bad|Getting There|Good|Amazing)$")]
-        public string? Rating { get; set; }
+        public string SmileyFace { get; set; }
+        
+        [Required]
+        [RegularExpression(@"^(We avoid|Not good enough|It's a start|Good|Great)$")]
+        public string Rated { get; set; }
+        
 
     }
 }
