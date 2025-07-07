@@ -1,0 +1,97 @@
+@page "/search"
+@rendermode InteractiveServer
+@inject IDbContextFactory<SustainabilityWebAppContext> DbFactory
+@using Microsoft.EntityFrameworkCore
+@using SustainabilityWebApp.Data
+@using SustainabilityWebApp.Models
+@implements IAsyncDisposable
+
+<PageTitle>Brand Search</PageTitle>
+
+<h1 class="display-4 mb-4">Search for a Brand</h1>
+
+<div class="mb-5">
+    <input class="form-control form-control-lg"
+           placeholder="Type a brand name..."
+           value="@searchTerm"
+           @oninput="OnInputChanged" />
+</div>
+
+@if (!string.IsNullOrWhiteSpace(searchTerm))
+{
+    if (isSearching)
+    {
+        <p><em>Searching...</em></p>
+    }
+    else if (filteredBrands.Count == 0)
+    {
+        <p>No results found..</p>
+    }
+    else
+    {
+        <ul class="list-group">
+            @foreach (var brand in filteredBrands)
+            {
+                <li class="list-group-item">
+                    <NavLink href="@($"/brands/details?id={brand.Id}")">@brand.Name</NavLink>
+                </li>
+            }
+        </ul>
+    }
+}
+
+@code {
+    private SustainabilityWebAppContext context = default!;
+    private string searchTerm = string.Empty;
+    private List<Brand> filteredBrands = new();
+
+    private CancellationTokenSource? debounceCts;
+    private readonly int debounceDelay = 1000;
+    private bool isSearching = false;
+
+    protected override void OnInitialized()
+    {
+        context = DbFactory.CreateDbContext();
+    }
+
+    private async Task OnInputChanged(ChangeEventArgs e)
+    {
+        searchTerm = e.Value?.ToString() ?? string.Empty;
+
+        debounceCts?.Cancel();
+        debounceCts = new CancellationTokenSource();
+
+        isSearching = true;
+        StateHasChanged(); // show "Searching..." without clearing old results
+
+        try
+        {
+            await Task.Delay(debounceDelay, debounceCts.Token);
+
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                var results = await context.Brand
+                    .Where(b => b.Name.Contains(searchTerm))
+                    .ToListAsync();
+
+                filteredBrands = results;
+            }
+            else
+            {
+                filteredBrands.Clear();
+            }
+        }
+        catch (TaskCanceledException)
+        {
+            // Debounce cancelled
+        }
+        finally
+        {
+            isSearching = false;
+            StateHasChanged();
+        }
+    }
+
+
+    public async ValueTask DisposeAsync() => await context.DisposeAsync();
+}

@@ -8,10 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="EPPlus" Version="8.0.7" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.MicrosoftAccount" Version="9.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter" Version="9.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="9.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.6" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.0" />
@@ -23,6 +25,11 @@
     <_ContentIncludedByDefault Remove="Components\Pages\BrandPages\Details.razor" />
     <_ContentIncludedByDefault Remove="Components\Pages\BrandPages\Edit.razor" />
     <_ContentIncludedByDefault Remove="Components\Pages\BrandPages\Index.razor" />
+    <_ContentIncludedByDefault Remove="Components\Pages\Brands\Create.razor" />
+    <_ContentIncludedByDefault Remove="Components\Pages\Brands\Delete.razor" />
+    <_ContentIncludedByDefault Remove="Components\Pages\Brands\Details.razor" />
+    <_ContentIncludedByDefault Remove="Components\Pages\Brands\Edit.razor" />
+    <_ContentIncludedByDefault Remove="Components\Pages\Brands\Index.razor" />
   </ItemGroup>
 
 </Project>

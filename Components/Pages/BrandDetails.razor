@@ -1,0 +1,37 @@
+@page "/brands/{id:int}"
+@inject SustainabilityWebAppContext _context
+@using SustainabilityWebApp.Models
+@using Microsoft.AspNetCore.Components
+@using SustainabilityWebApp.Data
+@using SustainabilityWebApp.Models
+
+<h3>Brand Details</h3>
+
+@if (brand == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="card p-3">
+        <h4>@brand.Name</h4>
+        <p><strong>Planet Sustainability:</strong> @brand.PlanetSustainabilityRate</p>
+        <p><strong>People:</strong> @brand.PeopleRate</p>
+        <p><strong>Animal Cruelty:</strong> @brand.AnimalCrueltyRate</p>
+        <p><strong>Pricing:</strong> @brand.PricingRate</p>
+        <p><strong>Smiley Face:</strong> @brand.SmileyFace</p>
+        <p><strong>Rated:</strong> @(brand.Rated)</p>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+
+    private Brand? brand;
+
+    protected override async Task OnInitializedAsync()
+    {
+        brand = await _context.Brand.FindAsync(id);
+    }
+}
