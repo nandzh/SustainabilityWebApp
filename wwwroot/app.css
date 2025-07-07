@@ -57,4 +57,40 @@ h1:focus {
 
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
     text-align: start;
+    
+    .nav-scrollable {
+        overflow-x: hidden;
+    }
+    
+    .nav-link,
+    button.nav-link {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+        box-sizing: border-box;
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+        border: none;
+        background: none;
+        text-align: left;
+    }
+    
+    form.logout-form {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    
+    button.nav-link span {
+        margin-right: 0.5rem;
+        flex-shrink: 0;
+    }
+    
+    button.nav-link {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+    
 }
