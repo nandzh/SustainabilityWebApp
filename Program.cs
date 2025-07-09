@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.Identity.Web;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,10 +30,17 @@ builder.Services.AddScoped<IdentityUserAccessor>();
 builder.Services.AddScoped<IdentityRedirectManager>();
 builder.Services.AddScoped<AuthenticationStateProvider, IdentityRevalidatingAuthenticationStateProvider>();
 
-// ✅ Use Azure AD (Microsoft Identity Web) only
-builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
-    .AddMicrosoftIdentityWebApp(builder.Configuration.GetSection("AzureAd"));
+// ✅ Proper authentication setup with both cookie schemes
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultScheme = IdentityConstants.ApplicationScheme;
+    options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
+})
+.AddCookie(IdentityConstants.ApplicationScheme)
+.AddCookie(IdentityConstants.ExternalScheme) // 🔥 This fixes the crash
+.AddMicrosoftIdentityWebApp(builder.Configuration.GetSection("AzureAd"));
 
+// Optional: configure cookie paths
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.LoginPath = "/Identity/Account/Login";
@@ -48,7 +56,15 @@ builder.Services.AddIdentityCore<ApplicationUser>(options =>
 
 builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
 
+builder.Services.AddHttpContextAccessor();
+
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    SeedData.SeedFromExcel(services, "Data/Sustainability_rates 1.xlsx");
+}
 
 if (app.Environment.IsDevelopment())
 {
@@ -62,7 +78,7 @@ else
 
 app.UseHttpsRedirection();
 app.UseAntiforgery();
-app.UseAuthentication();
+app.UseAuthentication();    // ✅ Must come before authorization
 app.UseAuthorization();
 
 app.MapStaticAssets();

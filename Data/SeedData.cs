@@ -23,7 +23,8 @@ namespace SustainabilityWebApp.Data
                 return;
             }
 
-            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+            ExcelPackage.License.SetNonCommercialOrganization("My Noncommercial organization"); //This will also set the Company property to the organization name provided in the argument.
+
 
             var fileInfo = new FileInfo(filePath);
             using var package = new ExcelPackage(fileInfo);

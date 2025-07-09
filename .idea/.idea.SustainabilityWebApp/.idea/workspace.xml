@@ -9,24 +9,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b974dc2e-aad7-4a74-bae2-363ad44c423d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.SustainabilityWebApp.dir/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.SustainabilityWebApp.dir/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.SustainabilityWebApp.dir/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/SustainabilityWebAppContextFactory.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SustainabilityWebApp/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SustainabilityWebApp/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SustainabilityWebApp/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SustainabilityWebApp/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SustainabilityWebApp/.idea/dataSources/2e466ee1-c471-49cd-85b7-2e2e1753b134.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SustainabilityWebApp/.idea/dataSources/2e466ee1-c471-49cd-85b7-2e2e1753b134.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SustainabilityWebApp/.idea/dataSources/5283f8da-ff9e-4016-977c-3620be74dd29.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SustainabilityWebApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SustainabilityWebApp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/ApplicationDbContext.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/ApplicationUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/ApplicationUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Migrations/00000000000000_CreateIdentitySchema.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Migrations/00000000000000_CreateIdentitySchema.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Migrations/00000000000000_CreateIdentitySchema.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Migrations/00000000000000_CreateIdentitySchema.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Migrations/20250707111147_InitialIdentitySchema.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Migrations/20250707111147_InitialIdentitySchema.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Migrations/20250707111147_InitialIdentitySchema.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Migrations/20250707111147_InitialIdentitySchema.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Migrations/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/SustainabilityWebAppContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/SustainabilityWebAppContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/SustainabilityWebApp/SustainabilityWebAppContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/SustainabilityWebApp/SustainabilityWebAppContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/SeedData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/SeedData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/SustainabilityWebApp/20250706145026_InitialCreate.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/SustainabilityWebApp/20250706145026_InitialCreate.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/SustainabilityWebApp/20250706194036_UpdateBrandEntity.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/SustainabilityWebApp/20250706194036_UpdateBrandEntity.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/SustainabilityWebApp/20250706212211_RemadeCRUD.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/SustainabilityWebApp/20250706212211_RemadeCRUD.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/SustainabilityWebApp/20250709154545_AddLogoUrlToBrand.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/SustainabilityWebApp/20250709154545_AddLogoUrlToBrand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/SustainabilityWebApp/20250709214021_Uni.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/SustainabilityWebApp/20250709214021_Uni.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/SustainabilityWebApp/SustainabilityWebAppContextModelSnapshot.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SustainabilityWebApp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/SustainabilityWebApp.csproj" afterDir="false" />
     </list>
@@ -56,32 +53,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.SustainabilityWebApp: http.executor&quot;: &quot;Run&quot;,
-    &quot;Azure - Web App.AzureSustainability.executor&quot;: &quot;Run&quot;,
-    &quot;Azure - Web App.Publish SustainabilityWebApp to Azure (1).executor&quot;: &quot;Run&quot;,
-    &quot;Azure - Web App.Publish SustainabilityWebApp to Azure.executor&quot;: &quot;Run&quot;,
-    &quot;Azure - Web App.Sustainability.executor&quot;: &quot;Run&quot;,
-    &quot;Azure - Web App.SustainabilityApp.executor&quot;: &quot;Run&quot;,
-    &quot;Azure - Web App.SustainabilityWeb.executor&quot;: &quot;Run&quot;,
-    &quot;Azure - Web App.SustainabilityWebApp.executor&quot;: &quot;Run&quot;,
-    &quot;Azure - Web App.Sustainable.executor&quot;: &quot;Run&quot;,
-    &quot;Azure - Web App.SustainableApp.executor&quot;: &quot;Run&quot;,
-    &quot;Azure - Web App.sustain.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.SustainabilityWebApp: http.executor": "Run",
+    "Azure - Web App.AzureSustainability.executor": "Run",
+    "Azure - Web App.Publish SustainabilityWebApp to Azure (1).executor": "Run",
+    "Azure - Web App.Publish SustainabilityWebApp to Azure.executor": "Run",
+    "Azure - Web App.Sustainability.executor": "Run",
+    "Azure - Web App.SustainabilityApp.executor": "Run",
+    "Azure - Web App.SustainabilityWeb.executor": "Run",
+    "Azure - Web App.SustainabilityWebApp.executor": "Run",
+    "Azure - Web App.Sustainable.executor": "Run",
+    "Azure - Web App.SustainableApp.executor": "Run",
+    "Azure - Web App.sustain.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlserver",
+      "azure"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.SustainabilityWebApp: http">
     <configuration name="AzureSustainability" type="AzureWebAppDeploy">
       <option name="appServicePlanName" value="ASP-SustainabilityWebApp-bc11" />
@@ -274,6 +277,7 @@
       <workItem from="1752093024442" duration="4894000" />
       <workItem from="1752097952594" duration="5000" />
       <workItem from="1752098157651" duration="12000" />
+      <workItem from="1752098182537" duration="4756000" />
     </task>
     <servers />
   </component>
