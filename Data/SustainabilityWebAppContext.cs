@@ -1,19 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using SustainabilityWebApp.Models;
+using SustainabilityWebApp.Components.Account; // This is where ApplicationUser is defined
 
 namespace SustainabilityWebApp.Data
 {
-    public class SustainabilityWebAppContext : DbContext
+    public class SustainabilityWebAppContext : IdentityDbContext<ApplicationUser>
     {
-        public SustainabilityWebAppContext (DbContextOptions<SustainabilityWebAppContext> options)
+        public SustainabilityWebAppContext(DbContextOptions<SustainabilityWebAppContext> options)
             : base(options)
         {
         }
 
-        public DbSet<SustainabilityWebApp.Models.Brand> Brand { get; set; } = default!;
+        public DbSet<Brand> Brand { get; set; } = default!;
     }
 }

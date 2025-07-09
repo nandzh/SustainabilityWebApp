@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="RD-251.26927.67">
-    <data-source name="Microsoft SQL Server (JetBrains)" uuid="2e466ee1-c471-49cd-85b7-2e2e1753b134">
+    <data-source name="Azure SQL Database" uuid="2e466ee1-c471-49cd-85b7-2e2e1753b134">
       <database-info product="Microsoft SQL Server" version="12.00.0601" jdbc-version="4.2" driver-name="JetBrains JDBC Driver for SQL Server" driver-version="1.0" dbms="AZURE" exact-version="12.0.601" exact-driver-version="1.0">
         <extra-name-characters>$#@</extra-name-characters>
         <identifier-quote-string>&quot;</identifier-quote-string>
@@ -17,7 +17,7 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
-    <data-source name="Microsoft SQL Server (JetBrains) [2]" uuid="5283f8da-ff9e-4016-977c-3620be74dd29">
+    <data-source name="Microsoft SQL Server (JetBrains)" uuid="dca180cb-eb15-489c-b765-ca6e7fb28cf3">
       <database-info product="Microsoft SQL Server" version="12.00.0601" jdbc-version="4.2" driver-name="JetBrains JDBC Driver for SQL Server" driver-version="1.0" dbms="AZURE" exact-version="12.0.601" exact-driver-version="1.0">
         <extra-name-characters>$#@</extra-name-characters>
         <identifier-quote-string>&quot;</identifier-quote-string>
