@@ -8,18 +8,34 @@
 
 @if (brand == null)
 {
-    <p><em>Loading...</em></p>
+    <p><em>Loading brand data...</em></p>
 }
 else
 {
-    <div class="card p-3">
+    <div class="card p-3" style="max-width: 600px;">
+        @if (!string.IsNullOrWhiteSpace(brand.LogoUrl))
+        {
+            <img src="@brand.LogoUrl" alt="@brand.Name Logo" style="max-height: 150px; margin-bottom: 1rem;" />
+        }
+
         <h4>@brand.Name</h4>
-        <p><strong>Planet Sustainability:</strong> @brand.PlanetSustainabilityRate</p>
-        <p><strong>People:</strong> @brand.PeopleRate</p>
-        <p><strong>Animal Cruelty:</strong> @brand.AnimalCrueltyRate</p>
-        <p><strong>Pricing:</strong> @brand.PricingRate</p>
-        <p><strong>Smiley Face:</strong> @brand.SmileyFace</p>
-        <p><strong>Rated:</strong> @(brand.Rated)</p>
+
+        <p><strong>Country of Origin:</strong> @brand.CountryOfOrigin</p>
+
+        <p><strong>Planet Sustainability Rate:</strong> @brand.PlanetSustainabilityRate</p>
+        <p><strong>People Rate:</strong> @brand.PeopleRate</p>
+        <p><strong>Animal Cruelty Rate:</strong> @brand.AnimalCrueltyRate</p>
+        
+        <p><strong>Pricing Rate:</strong> @RenderPricingRate(brand.PricingRate)</p>
+        
+        <p><strong>Smiley Face:</strong> @FormatSmiley(brand.SmileyFace)</p>
+
+        <p><strong>Overall Rating:</strong> @brand.Rated</p>
+
+        <p>
+            <a class="btn btn-primary" href="/brands/edit?id=@brand.Id">Edit</a>
+            <a class="btn btn-secondary ms-2" href="/brands">Back to List</a>
+        </p>
     </div>
 }
 
@@ -33,4 +49,24 @@ else
     {
         brand = await _context.Brand.FindAsync(id);
     }
+
+    private RenderFragment RenderPricingRate(int? pricingRate) => builder =>
+    {
+        if (pricingRate.HasValue && pricingRate.Value > 0)
+        {
+            builder.AddContent(0, new string('$', pricingRate.Value));
+        }
+        else
+        {
+            builder.AddContent(1, "N/A");
+        }
+    };
+
+    private string FormatSmiley(string smiley) => smiley switch
+    {
+        ":)" => "😊",
+        ":(" => "😞",
+        ":D" => "😄",
+        _ => smiley
+    };
 }

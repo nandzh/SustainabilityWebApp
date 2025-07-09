@@ -39,6 +39,8 @@ namespace SustainabilityWebApp.Models
         //[RegularExpression(@"^(We avoid|Not good enough|It's a start|Good|Great)$")]
         public string Rated { get; set; } = string.Empty;
         
+        public string? LogoUrl { get; set; } = string.Empty;
+        
 
     }
 }

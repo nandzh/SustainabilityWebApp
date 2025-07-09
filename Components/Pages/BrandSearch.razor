@@ -8,10 +8,87 @@
 
 <PageTitle>Brand Search</PageTitle>
 
-<h1 class="display-4 mb-4">Search for a Brand</h1>
+<div class="page-container">
+    <h1>Search for a Brand</h1>
+</div>
 
-<div class="mb-5">
-    <input class="form-control form-control-lg"
+
+
+<style>
+    .search-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: 4rem;
+    }
+
+    .search-input {
+        width: 100%;
+        max-width: 600px;
+        font-size: 1.5rem;
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+        border: 1px solid #ccc;
+        box-shadow: none;
+        transition: border-color 0.2s ease-in-out;
+    }
+
+    .search-input:focus {
+        border-color: #1b6ec2;
+        outline: none;
+        box-shadow: 0 0 8px rgba(27, 110, 194, 0.5);
+    }
+
+    .results-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2rem;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+
+    .brand-card {
+        
+        display: flex;
+        align-items: center;
+        width: 100%;
+        max-width: 650px;
+        background-color: #ffffff;
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        padding: 1rem 1.25rem;
+    }
+
+    .brand-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        background: linear-gradient(135deg, #e0f0ff 0%, #ffffff 100%);
+    }
+
+    .brand-logo {
+        height: 60px;
+        width: 60px;
+        object-fit: contain;
+        border-radius: 8px;
+        margin-right: 1.25rem;
+        background-color: #f2f2f2;
+        padding: 0.25rem;
+    }
+
+    .brand-name {
+        font-size: 1.5rem;
+        font-weight: 600;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+</style>
+
+
+
+<div class="d-flex justify-content-center mb-5">
+    <input class="form-control form-control-lg w-50"
            placeholder="Type a brand name..."
            value="@searchTerm"
            @oninput="OnInputChanged" />
@@ -21,19 +98,23 @@
 {
     if (isSearching)
     {
-        <p><em>Searching...</em></p>
+        <p class="text-center"><em>Searching...</em></p>
     }
     else if (filteredBrands.Count == 0)
     {
-        <p>No results found..</p>
+        <p class="text-center">No results found..</p>
     }
     else
     {
-        <ul class="list-group">
+        <ul class="list-group w-50 mx-auto">
             @foreach (var brand in filteredBrands)
             {
-                <li class="list-group-item">
-                    <NavLink href="@($"/brands/details?id={brand.Id}")">@brand.Name</NavLink>
+                <li class="list-group-item d-flex align-items-center">
+                    @if (!string.IsNullOrWhiteSpace(brand.LogoUrl))
+                    {
+                        <img src="@brand.LogoUrl" alt="@brand.Name Logo" style="height: 40px; width: auto; margin-right: 1rem;" />
+                    }
+                    <NavLink href="@($"/brand/{brand.Id}")">@brand.Name</NavLink>
                 </li>
             }
         </ul>
@@ -62,7 +143,7 @@
         debounceCts = new CancellationTokenSource();
 
         isSearching = true;
-        StateHasChanged(); // show "Searching..." without clearing old results
+        StateHasChanged();
 
         try
         {
@@ -72,6 +153,7 @@
             {
                 var results = await context.Brand
                     .Where(b => b.Name.Contains(searchTerm))
+                    .OrderBy(b => b.Name)
                     .ToListAsync();
 
                 filteredBrands = results;
@@ -83,7 +165,7 @@
         }
         catch (TaskCanceledException)
         {
-            // Debounce cancelled
+            // debounce cancelled, no action needed
         }
         finally
         {
@@ -91,7 +173,6 @@
             StateHasChanged();
         }
     }
-
 
     public async ValueTask DisposeAsync() => await context.DisposeAsync();
 }

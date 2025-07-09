@@ -8,7 +8,6 @@
 @implements IAsyncDisposable
 @inject IDbContextFactory<SustainabilityWebApp.Data.SustainabilityWebAppContext> DbFactory
 
-
 <PageTitle>Index</PageTitle>
 
 <h1>Index</h1>
@@ -31,6 +30,13 @@
         <PropertyColumn Property="brand => brand.SmileyFace" />
         <PropertyColumn Property="brand => brand.PricingRate" Title="Average Price" />
         <PropertyColumn Property="brand => brand.CountryOfOrigin" />
+        
+        <TemplateColumn Title="Logo" Context="brand">
+            @if (!string.IsNullOrWhiteSpace(brand.LogoUrl))
+            {
+                <img src="@brand.LogoUrl" alt="@brand.Name Logo" style="height: 50px;" />
+            }
+        </TemplateColumn>
 
         <TemplateColumn Context="brand">
             <a href="@($"brands/edit?id={brand.Id}")">Edit</a> |

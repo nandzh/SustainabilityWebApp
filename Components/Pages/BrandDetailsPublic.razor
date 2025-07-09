@@ -1,0 +1,73 @@
+@page "/brand/{id:int}"
+@inject SustainabilityWebAppContext _context
+@using SustainabilityWebApp.Models
+@using Microsoft.AspNetCore.Components
+@using SustainabilityWebApp.Data
+
+<h3 class="page-title">Brand Details</h3>
+
+@if (brand == null)
+{
+    <p><em>Loading brand data...</em></p>
+}
+else
+{
+    <div class="brand-card">
+        @if (!string.IsNullOrWhiteSpace(brand.LogoUrl))
+        {
+            <img src="@brand.LogoUrl" alt="@brand.Name Logo" class="brand-logo" />
+        }
+
+        <div class="brand-info">
+            <h4>@brand.Name</h4>
+
+            <p><strong>Country of Origin:</strong> @brand.CountryOfOrigin</p>
+
+            <div class="rating-group">
+                <div><strong>Planet Sustainability Rate:</strong> @brand.PlanetSustainabilityRate</div>
+                <div><strong>People Rate:</strong> @brand.PeopleRate</div>
+                <div><strong>Animal Cruelty Rate:</strong> @brand.AnimalCrueltyRate</div>
+                <div><strong>Pricing Rate:</strong> @RenderPricingRate(brand.PricingRate)</div>
+                <div><strong>Smiley Face:</strong> @FormatSmiley(brand.SmileyFace)</div>
+                <div><strong>Overall Rating:</strong> @brand.Rated</div>
+            </div>
+
+            <div class="actions">
+                <a class="btn btn-primary" href="/brands/edit?id=@brand.Id">Edit</a>
+                <a class="btn btn-secondary ms-2" href="/brands">Back to List</a>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+
+    private Brand? brand;
+
+    protected override async Task OnInitializedAsync()
+    {
+        brand = await _context.Brand.FindAsync(id);
+    }
+
+    private RenderFragment RenderPricingRate(int? pricingRate) => builder =>
+    {
+        if (pricingRate.HasValue && pricingRate.Value > 0)
+        {
+            builder.AddContent(0, new string('$', pricingRate.Value));
+        }
+        else
+        {
+            builder.AddContent(1, "N/A");
+        }
+    };
+
+    private string FormatSmiley(string smiley) => smiley switch
+    {
+        ":)" => "😊",
+        ":(" => "😞",
+        ":D" => "😄",
+        _ => smiley
+    };
+}

@@ -9,15 +9,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b974dc2e-aad7-4a74-bae2-363ad44c423d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SustainabilityWebApp/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SustainabilityWebApp/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SustainabilityWebApp/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SustainabilityWebApp/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SustainabilityWebApp/.idea/dataSources/2e466ee1-c471-49cd-85b7-2e2e1753b134.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SustainabilityWebApp/.idea/dataSources/2e466ee1-c471-49cd-85b7-2e2e1753b134.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SustainabilityWebApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SustainabilityWebApp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/Layout/MainLayout.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Layout/MainLayout.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/Layout/NavMenu.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Layout/NavMenu.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/Pages/BrandDetails.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Pages/BrandDetails.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Pages/Brands/Index.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Pages/Brands/Index.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SustainabilityWebApp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/SustainabilityWebApp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wwwroot/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/app.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,24 +40,75 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.SustainabilityWebApp: http.executor&quot;: &quot;Run&quot;,
-    &quot;Azure - Web App.SustainabilityApp.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.SustainabilityWebApp: http.executor": "Run",
+    "Azure - Web App.AzureSustainability.executor": "Run",
+    "Azure - Web App.Publish SustainabilityWebApp to Azure.executor": "Run",
+    "Azure - Web App.Sustainability.executor": "Run",
+    "Azure - Web App.SustainabilityApp.executor": "Run",
+    "Azure - Web App.SustainabilityWeb.executor": "Run",
+    "Azure - Web App.SustainabilityWebApp.executor": "Run",
+    "Azure - Web App.sustain.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.SustainabilityWebApp: http">
+    <configuration name="AzureSustainability" type="AzureWebAppDeploy">
+      <option name="appServicePlanName" value="ASP-SustainabilityWebApp-bc11" />
+      <option name="appServicePlanResourceGroupName" value="SustainabilityWebApp" />
+      <option name="operatingSystem" value="Windows" />
+      <option name="pricingSize" value="F1" />
+      <option name="pricingTier" value="Free" />
+      <option name="projectConfiguration" value="Release" />
+      <option name="projectPlatform" value="Any CPU" />
+      <option name="publishableProjectPath" value="$PROJECT_DIR$/SustainabilityWebApp.csproj" />
+      <option name="region" value="westeurope" />
+      <option name="resourceGroupName" value="SustainabilityWebApp" />
+      <option name="subscriptionId" value="47f0b40f-7a8b-4231-8895-93346f5204a3" />
+      <option name="webAppName" value="sustainability" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Publish SustainabilityWebApp to Azure" type="AzureWebAppDeploy">
+      <option name="appServicePlanName" value="asp-app-250708232925" />
+      <option name="appServicePlanResourceGroupName" value="rg-app-250708232925" />
+      <option name="operatingSystem" value="Windows" />
+      <option name="pricingSize" value="F1" />
+      <option name="pricingTier" value="Free" />
+      <option name="projectConfiguration" value="Release" />
+      <option name="projectPlatform" value="Any CPU" />
+      <option name="publishableProjectPath" value="$PROJECT_DIR$/SustainabilityWebApp.csproj" />
+      <option name="region" value="centralus" />
+      <option name="resourceGroupName" value="rg-app-250708232925" />
+      <option name="subscriptionId" value="47f0b40f-7a8b-4231-8895-93346f5204a3" />
+      <option name="webAppName" value="app-250708232925" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Sustainability" type="AzureWebAppDeploy">
+      <option name="appServicePlanName" value="asp-app-250708232925" />
+      <option name="appServicePlanResourceGroupName" value="rg-app-250708232925" />
+      <option name="operatingSystem" value="Windows" />
+      <option name="pricingSize" value="F1" />
+      <option name="pricingTier" value="Free" />
+      <option name="projectConfiguration" value="Release" />
+      <option name="projectPlatform" value="Any CPU" />
+      <option name="publishableProjectPath" value="$PROJECT_DIR$/SustainabilityWebApp.csproj" />
+      <option name="region" value="centralus" />
+      <option name="resourceGroupName" value="rg-app-250708232925" />
+      <option name="subscriptionId" value="47f0b40f-7a8b-4231-8895-93346f5204a3" />
+      <option name="webAppName" value="app-250708232925" />
+      <method v="2" />
+    </configuration>
     <configuration name="SustainabilityApp" type="AzureWebAppDeploy">
       <option name="appServicePlanName" value="ASP-SustainabilityWebApp-a2de" />
       <option name="appServicePlanResourceGroupName" value="SustainabilityWebApp" />
@@ -77,6 +123,51 @@
       <option name="resourceGroupName" value="SustainabilityWebApp" />
       <option name="subscriptionId" value="47f0b40f-7a8b-4231-8895-93346f5204a3" />
       <option name="webAppName" value="sustainability" />
+      <method v="2" />
+    </configuration>
+    <configuration name="SustainabilityWeb" type="AzureWebAppDeploy">
+      <option name="appServicePlanName" value="ASP-SustainabilityWebApp-bc11" />
+      <option name="appServicePlanResourceGroupName" value="SustainabilityWebApp" />
+      <option name="operatingSystem" value="Windows" />
+      <option name="pricingSize" value="F1" />
+      <option name="pricingTier" value="Free" />
+      <option name="projectConfiguration" value="Release" />
+      <option name="projectPlatform" value="Any CPU" />
+      <option name="publishableProjectPath" value="$PROJECT_DIR$/SustainabilityWebApp.csproj" />
+      <option name="region" value="westeurope" />
+      <option name="resourceGroupName" value="SustainabilityWebApp" />
+      <option name="subscriptionId" value="47f0b40f-7a8b-4231-8895-93346f5204a3" />
+      <option name="webAppName" value="sustainability" />
+      <method v="2" />
+    </configuration>
+    <configuration name="SustainabilityWebApp" type="AzureWebAppDeploy">
+      <option name="appServicePlanName" value="ASP-SustainabilityWebApp-83d9" />
+      <option name="appServicePlanResourceGroupName" value="SustainabilityWebApp" />
+      <option name="operatingSystem" value="Windows" />
+      <option name="pricingSize" value="F1" />
+      <option name="pricingTier" value="Free" />
+      <option name="projectConfiguration" value="Release" />
+      <option name="projectPlatform" value="Any CPU" />
+      <option name="publishableProjectPath" value="$PROJECT_DIR$/SustainabilityWebApp.csproj" />
+      <option name="region" value="westeurope" />
+      <option name="resourceGroupName" value="SustainabilityWebApp" />
+      <option name="subscriptionId" value="47f0b40f-7a8b-4231-8895-93346f5204a3" />
+      <option name="webAppName" value="sustainabilityapp" />
+      <method v="2" />
+    </configuration>
+    <configuration name="sustain" type="AzureWebAppDeploy">
+      <option name="appServicePlanName" value="ASP-SustainabilityWebApp-992a" />
+      <option name="appServicePlanResourceGroupName" value="SustainabilityWebApp" />
+      <option name="operatingSystem" value="Windows" />
+      <option name="pricingSize" value="F1" />
+      <option name="pricingTier" value="Free" />
+      <option name="projectConfiguration" value="Release" />
+      <option name="projectPlatform" value="Any CPU" />
+      <option name="publishableProjectPath" value="$PROJECT_DIR$/SustainabilityWebApp.csproj" />
+      <option name="region" value="westeurope" />
+      <option name="resourceGroupName" value="SustainabilityWebApp" />
+      <option name="subscriptionId" value="47f0b40f-7a8b-4231-8895-93346f5204a3" />
+      <option name="webAppName" value="sustainabilityapp" />
       <method v="2" />
     </configuration>
     <configuration name="SustainabilityWebApp: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
@@ -121,6 +212,9 @@
       <workItem from="1751826672219" duration="12230000" />
       <workItem from="1751840146838" duration="15000" />
       <workItem from="1751874060412" duration="17779000" />
+      <workItem from="1751893147198" duration="6596000" />
+      <workItem from="1752006684711" duration="2951000" />
+      <workItem from="1752009831443" duration="3066000" />
     </task>
     <servers />
   </component>
