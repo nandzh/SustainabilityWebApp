@@ -12,15 +12,12 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ✅ Correct single connection string
 var sustainabilityConnectionString = builder.Configuration.GetConnectionString("SustainabilityWebAppContext")
     ?? throw new InvalidOperationException("Connection string 'SustainabilityWebAppContext' not found.");
 
-// ✅ Register DbContext only once
 builder.Services.AddDbContextFactory<SustainabilityWebAppContext>(options =>
     options.UseSqlServer(sustainabilityConnectionString));
 
-// Identity setup
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddQuickGridEntityFrameworkAdapter();
 builder.Services.AddRazorComponents().AddInteractiveServerComponents();
@@ -30,23 +27,29 @@ builder.Services.AddScoped<IdentityUserAccessor>();
 builder.Services.AddScoped<IdentityRedirectManager>();
 builder.Services.AddScoped<AuthenticationStateProvider, IdentityRevalidatingAuthenticationStateProvider>();
 
-// ✅ Proper authentication setup with both cookie schemes
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultScheme = IdentityConstants.ApplicationScheme;
     options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
 })
 .AddCookie(IdentityConstants.ApplicationScheme)
-.AddCookie(IdentityConstants.ExternalScheme) // 🔥 This fixes the crash
+.AddCookie(IdentityConstants.ExternalScheme) 
 .AddMicrosoftIdentityWebApp(builder.Configuration.GetSection("AzureAd"));
 
-// Optional: configure cookie paths
 builder.Services.ConfigureApplicationCookie(options =>
 {
-    options.LoginPath = "/Identity/Account/Login";
-    options.LogoutPath = "/Identity/Account/Logout";
-    options.AccessDeniedPath = "/Identity/Account/AccessDenied";
+    options.LoginPath = "/Components/Account/Pages/Login";
+    options.LogoutPath = "/Components/Account/Pages/Logout";
+    options.AccessDeniedPath = "/Components/Account/Pages/AccessDenied";
 });
+
+//authentication
+builder.Services.Configure<CookiePolicyOptions>(options =>
+{
+    options.MinimumSameSitePolicy = SameSiteMode.None;
+    options.Secure = CookieSecurePolicy.Always;
+});
+
 
 builder.Services.AddIdentityCore<ApplicationUser>(options =>
     options.SignIn.RequireConfirmedAccount = true)
@@ -75,10 +78,11 @@ else
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
     app.UseHsts();
 }
-
 app.UseHttpsRedirection();
 app.UseAntiforgery();
-app.UseAuthentication();    // ✅ Must come before authorization
+app.UseCookiePolicy();
+
+app.UseAuthentication();   
 app.UseAuthorization();
 
 app.MapStaticAssets();

@@ -9,23 +9,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b974dc2e-aad7-4a74-bae2-363ad44c423d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SustainabilityWebApp/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SustainabilityWebApp/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SustainabilityWebApp/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SustainabilityWebApp/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Components/Account/Pages/Logout.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Components/Pages/BrandDetailsPublic.razor.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SustainabilityWebApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SustainabilityWebApp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/SeedData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/SeedData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/SustainabilityWebApp/20250706145026_InitialCreate.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/SustainabilityWebApp/20250706145026_InitialCreate.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/SustainabilityWebApp/20250706194036_UpdateBrandEntity.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/SustainabilityWebApp/20250706194036_UpdateBrandEntity.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/SustainabilityWebApp/20250706212211_RemadeCRUD.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/SustainabilityWebApp/20250706212211_RemadeCRUD.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/SustainabilityWebApp/20250709154545_AddLogoUrlToBrand.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/SustainabilityWebApp/20250709154545_AddLogoUrlToBrand.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/SustainabilityWebApp/20250709214021_Uni.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/SustainabilityWebApp/20250709214021_Uni.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/SustainabilityWebApp/SustainabilityWebAppContextModelSnapshot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Layout/NavMenu.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Layout/NavMenu.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SustainabilityWebApp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/SustainabilityWebApp.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,38 +41,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.SustainabilityWebApp: http.executor": "Run",
-    "Azure - Web App.AzureSustainability.executor": "Run",
-    "Azure - Web App.Publish SustainabilityWebApp to Azure (1).executor": "Run",
-    "Azure - Web App.Publish SustainabilityWebApp to Azure.executor": "Run",
-    "Azure - Web App.Sustainability.executor": "Run",
-    "Azure - Web App.SustainabilityApp.executor": "Run",
-    "Azure - Web App.SustainabilityWeb.executor": "Run",
-    "Azure - Web App.SustainabilityWebApp.executor": "Run",
-    "Azure - Web App.Sustainable.executor": "Run",
-    "Azure - Web App.SustainableApp.executor": "Run",
-    "Azure - Web App.sustain.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.SustainabilityWebApp: http.executor&quot;: &quot;Run&quot;,
+    &quot;Azure - Web App.AzureSustainability.executor&quot;: &quot;Run&quot;,
+    &quot;Azure - Web App.Publish SustainabilityWebApp to Azure (1).executor&quot;: &quot;Run&quot;,
+    &quot;Azure - Web App.Publish SustainabilityWebApp to Azure.executor&quot;: &quot;Run&quot;,
+    &quot;Azure - Web App.Sustainability.executor&quot;: &quot;Run&quot;,
+    &quot;Azure - Web App.SustainabilityApp.executor&quot;: &quot;Run&quot;,
+    &quot;Azure - Web App.SustainabilityWeb.executor&quot;: &quot;Run&quot;,
+    &quot;Azure - Web App.SustainabilityWebApp.executor&quot;: &quot;Run&quot;,
+    &quot;Azure - Web App.Sustainable.executor&quot;: &quot;Run&quot;,
+    &quot;Azure - Web App.SustainableApp.executor&quot;: &quot;Run&quot;,
+    &quot;Azure - Web App.SustainableWebApp.executor&quot;: &quot;Run&quot;,
+    &quot;Azure - Web App.sustain.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlserver",
-      "azure"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlserver&quot;,
+      &quot;azure&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.SustainabilityWebApp: http">
     <configuration name="AzureSustainability" type="AzureWebAppDeploy">
       <option name="appServicePlanName" value="ASP-SustainabilityWebApp-bc11" />
@@ -213,6 +202,21 @@
       <option name="webAppName" value="sustainabilityapp" />
       <method v="2" />
     </configuration>
+    <configuration name="SustainableWebApp" type="AzureWebAppDeploy">
+      <option name="appServicePlanName" value="ASP-SustainabilityWebApp-992a" />
+      <option name="appServicePlanResourceGroupName" value="SustainabilityWebApp" />
+      <option name="operatingSystem" value="Windows" />
+      <option name="pricingSize" value="F1" />
+      <option name="pricingTier" value="Free" />
+      <option name="projectConfiguration" value="Release" />
+      <option name="projectPlatform" value="Any CPU" />
+      <option name="publishableProjectPath" value="$PROJECT_DIR$/SustainabilityWebApp.csproj" />
+      <option name="region" value="westeurope" />
+      <option name="resourceGroupName" value="SustainabilityWebApp" />
+      <option name="subscriptionId" value="47f0b40f-7a8b-4231-8895-93346f5204a3" />
+      <option name="webAppName" value="sustainabilityapp" />
+      <method v="2" />
+    </configuration>
     <configuration name="sustain" type="AzureWebAppDeploy">
       <option name="appServicePlanName" value="ASP-SustainabilityWebApp-992a" />
       <option name="appServicePlanResourceGroupName" value="SustainabilityWebApp" />
@@ -231,7 +235,7 @@
     <configuration name="SustainabilityWebApp: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/SustainabilityWebApp.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net9.0" />
-      <option name="LAUNCH_PROFILE_NAME" value="http" />
+      <option name="LAUNCH_PROFILE_NAME" value="https" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
@@ -258,6 +262,21 @@
         <option name="Build" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue=".NET Launch Settings Profile.SustainabilityWebApp: http" />
+      <item itemvalue=".NET Launch Settings Profile.SustainabilityWebApp: https" />
+      <item itemvalue="Azure - Web App.AzureSustainability" />
+      <item itemvalue="Azure - Web App.Publish SustainabilityWebApp to Azure" />
+      <item itemvalue="Azure - Web App.Publish SustainabilityWebApp to Azure (1)" />
+      <item itemvalue="Azure - Web App.sustain" />
+      <item itemvalue="Azure - Web App.Sustainability" />
+      <item itemvalue="Azure - Web App.SustainabilityApp" />
+      <item itemvalue="Azure - Web App.SustainabilityWeb" />
+      <item itemvalue="Azure - Web App.SustainabilityWebApp" />
+      <item itemvalue="Azure - Web App.Sustainable" />
+      <item itemvalue="Azure - Web App.SustainableApp" />
+      <item itemvalue="Azure - Web App.SustainableWebApp" />
+    </list>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -277,7 +296,8 @@
       <workItem from="1752093024442" duration="4894000" />
       <workItem from="1752097952594" duration="5000" />
       <workItem from="1752098157651" duration="12000" />
-      <workItem from="1752098182537" duration="4756000" />
+      <workItem from="1752098182537" duration="5138000" />
+      <workItem from="1752136570568" duration="4137000" />
     </task>
     <servers />
   </component>
