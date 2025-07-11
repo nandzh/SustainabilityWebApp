@@ -12,7 +12,7 @@
 <PageTitle>Index</PageTitle>
 
 <h1>Index</h1>
-
+<div class="page-container">
 <div>
     <input type="search" @bind="titleFilter" @bind:event="oninput" />
 </div>
@@ -22,7 +22,7 @@
 </p>
 
 <div>
-    <QuickGrid Class="table" Items="FilteredBrands" Pagination="pagination">
+    <QuickGrid Class="table-wrapper" Items="FilteredBrands" Pagination="pagination">
         <PropertyColumn Property="brand => brand.Name" Sortable="true" />
         <PropertyColumn Property="brand => brand.PlanetSustainabilityRate" Title="Founded Date" />
         <PropertyColumn Property="brand => brand.PeopleRate" />
@@ -35,7 +35,7 @@
         <TemplateColumn Title="Logo" Context="brand">
             @if (!string.IsNullOrWhiteSpace(brand.LogoUrl))
             {
-                <img src="@brand.LogoUrl" alt="@brand.Name Logo" style="height: 50px;" />
+                <img src="@brand.LogoUrl" alt="@brand.Name" class="brand-logo" />
             }
         </TemplateColumn>
 
@@ -49,7 +49,7 @@
 
 <Paginator State="pagination" />
 
-
+</div>
 @code {
     private PaginationState pagination = new PaginationState { ItemsPerPage = 10 };
 

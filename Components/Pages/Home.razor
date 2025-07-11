@@ -1,7 +1,59 @@
 ﻿@page "/"
+@using Microsoft.EntityFrameworkCore
+@using SustainabilityWebApp.Data
+@using SustainabilityWebApp.Models
+@inject IDbContextFactory<SustainabilityWebAppContext> DbFactory
+@rendermode InteractiveServer
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Home - Sustainability Web App</PageTitle>
 
-<h1>Hello, world!</h1>
+<section class="hero">
+    <h1>Our Mission</h1>
+    <p>
+        We help you find sustainable brands that care about the environment, workers, and animals. 
+        Make informed choices and support ethical companies.
+    </p>
+</section>
 
-Welcome to your new app.
+<section class="featured-brands">
+    <h2>Featured Brands</h2>
+
+    @if (brands == null)
+    {
+        <p>Loading brands...</p>
+    }
+    else if (!brands.Any())
+    {
+        <p>No brands found.</p>
+    }
+    else
+    {
+        <div class="brand-grid">
+            @foreach (var brand in brands)
+            {
+                <a class="brand-card" href="/brand/@brand.Id">
+                    @if (!string.IsNullOrEmpty(brand.LogoUrl))
+                    {
+                        <img src="@brand.LogoUrl" alt="@brand.Name" class="brand-logo" />
+                    }
+                    <h3>@brand.Name</h3>
+                </a>
+            }
+        </div>
+    }
+</section>
+
+@code {
+    private List<Brand>? brands;
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+
+        // Get 4 random brands for featured display
+        brands = await context.Brand
+            .OrderBy(b => Guid.NewGuid())
+            .Take(4)
+            .ToListAsync();
+    }
+}

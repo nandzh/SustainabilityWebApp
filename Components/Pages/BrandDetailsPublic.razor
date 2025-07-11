@@ -15,7 +15,7 @@ else
     <div class="brand-card">
         @if (!string.IsNullOrWhiteSpace(brand.LogoUrl))
         {
-            <img src="@brand.LogoUrl" alt="@brand.Name Logo" class="brand-logo" />
+            <img src="@brand.LogoUrl" alt="@brand.Name" class="brand-logo" />
         }
 
         <div class="brand-info">
@@ -24,17 +24,12 @@ else
             <p><strong>Country of Origin:</strong> @brand.CountryOfOrigin</p>
 
             <div class="rating-group">
-                <div><strong>Planet Sustainability Rate:</strong> @brand.PlanetSustainabilityRate</div>
-                <div><strong>People Rate:</strong> @brand.PeopleRate</div>
-                <div><strong>Animal Cruelty Rate:</strong> @brand.AnimalCrueltyRate</div>
-                <div><strong>Pricing Rate:</strong> @RenderPricingRate(brand.PricingRate)</div>
+                <div><strong>Planet Sustainability Rate:</strong> @brand.PlanetSustainabilityRate <span style="font-size: 0.85em; opacity: 0.6;"> / 5</span></div>
+                <div><strong>People Rate:</strong> @brand.PeopleRate <span style="font-size: 0.85em; opacity: 0.6;"> / 5</span></div>
+                <div><strong>Animal Cruelty Rate:</strong> @brand.AnimalCrueltyRate <span style="font-size: 0.85em; opacity: 0.6;"> / 5</span></div>
+                <div><strong>Pricing Rate:</strong> @RenderPricingRate(brand.PricingRate) <span style="font-size: 0.85em; opacity: 0.6;"> / $$$$</span></div>
                 <div><strong>Smiley Face:</strong> @FormatSmiley(brand.SmileyFace)</div>
                 <div><strong>Overall Rating:</strong> @brand.Rated</div>
-            </div>
-
-            <div class="actions">
-                <a class="btn btn-primary" href="/brands/edit?id=@brand.Id">Edit</a>
-                <a class="btn btn-secondary ms-2" href="/brands">Back to List</a>
             </div>
         </div>
     </div>

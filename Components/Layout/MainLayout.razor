@@ -1,4 +1,9 @@
-﻿@inherits LayoutComponentBase
+﻿@using Microsoft.EntityFrameworkCore
+@using SustainabilityWebApp.Data
+@using SustainabilityWebApp.Models
+@inherits LayoutComponentBase
+@inject IDbContextFactory<SustainabilityWebAppContext> DbFactory
+@inject NavigationManager Nav
 
 <div class="page">
     <div class="sidebar">
@@ -6,11 +11,6 @@
     </div>
 
     <main>
-        @*
-        <div class="top-row px-4">
-            <a href="Account/Login">Login</a> <a href="Account/Register">Sign Up</a>
-        </div>
-        *@
         <article class="content px-4">
             @Body
         </article>
@@ -22,3 +22,18 @@
     <a href="." class="reload">Reload</a>
     <span class="dismiss">🗙</span>
 </div>
+
+@code {
+    private List<Brand> RandomBrands = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        RandomBrands = await LoadRandomBrandsAsync();
+    }
+
+    private async Task<List<Brand>> LoadRandomBrandsAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+        return await context.Brand.Take(5).ToListAsync();
+    }
+}

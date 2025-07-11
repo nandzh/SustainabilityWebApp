@@ -1,48 +1,165 @@
 .brand-card {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    gap: 2rem;
+    gap: 1.5rem;
     align-items: flex-start;
-    background-color: #ffffff;
+    background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 12px;
-    padding: 1.5rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem 2rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
+    max-width: 900px;
+    margin: 2rem auto; /* centers horizontally */
 }
 
 .brand-logo {
-    max-width: 180px;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+    flex-shrink: 0;
 }
 
 .brand-info {
     flex: 1;
-    min-width: 260px;
+    min-width: 0; /* important for flex items to shrink properly */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .brand-info h4 {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    font-size: 1.75rem;
-    color: #333;
+    margin: 0 0 1rem;
+    font-size: 1.5rem;
+    color: #222;
+    font-weight: 600;
 }
 
 .rating-group {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.4rem;
-    margin-top: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0.75rem 1.5rem;
+    margin-top: 0;
     font-size: 1rem;
+    color: #444;
+}
+
+.rating-group > div strong {
+    color: #000;
 }
 
 .actions {
     margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
 }
 
 .actions .btn {
-    padding: 0.5rem 1.2rem;
-    font-size: 0.95rem;
+    padding: 0.5rem 1.3rem;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.actions .btn-primary {
+    background-color: #0078d4;
+    color: white;
+}
+
+.actions .btn-primary:hover {
+    background-color: #005a9e;
+}
+
+.actions .btn-secondary {
+    background-color: #f3f3f3;
+    color: #555;
+}
+
+.actions .btn-secondary:hover {
+    background-color: #e1e1e1;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+    .brand-card {
+        flex-direction: column;
+        max-width: 100%;
+        margin: 1rem;
+    }
+
+    .brand-logo {
+        width: 100%;
+        height: auto;
+        max-height: 180px;
+        margin-bottom: 1rem;
+    }
+
+    .rating-group {
+        grid-template-columns: 1fr;
+    }
+
+    .actions {
+        justify-content: center;
+    }
+
+    /* Brand details card variant */
+    .brand-details-card {
+        display: flex;
+        gap: 2rem;
+        padding: 1.5rem;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        background-color: #fff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        align-items: flex-start;
+        max-width: 700px;
+        margin: 2rem auto; /* center horizontally */
+        flex-direction: column;
+    }
+
+    .brand-details-card img {
+        max-width: 180px;
+        max-height: 180px;
+        object-fit: contain;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 1rem;
+        align-self: center;
+    }
+
+    .brand-details-info {
+        flex: 1;
+    }
+
+    .brand-details-info h4 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-size: 1.75rem;
+        color: #333;
+    }
+
+    .rating-group {
+        grid-template-columns: 1fr;
+        gap: 0.4rem;
+        margin-top: 1rem;
+        font-size: 1rem;
+    }
+
+    .actions {
+        margin-top: 2rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .actions .btn {
+        padding: 0.5rem 1.2rem;
+        font-size: 0.95rem;
+        flex: 1 1 auto;
+        max-width: 150px;
+    }
 }

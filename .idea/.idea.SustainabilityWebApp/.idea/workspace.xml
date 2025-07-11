@@ -9,13 +9,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b974dc2e-aad7-4a74-bae2-363ad44c423d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Components/Pages/Test.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/EmailSender.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Components/Pages/Brands/Index.razor.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Components/Pages/Home.razor.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SustainabilityWebApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SustainabilityWebApp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/Layout/NavMenu.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Layout/NavMenu.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Account/Pages/Login.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Account/Pages/Login.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Account/Pages/Login.razor.css" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Account/Pages/Login.razor.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Account/Pages/Register.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Account/Pages/Register.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Account/Shared/ExternalLoginPicker.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Account/Shared/ExternalLoginPicker.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Layout/MainLayout.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Layout/MainLayout.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Pages/BrandDetailsPublic.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Pages/BrandDetailsPublic.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Pages/BrandDetailsPublic.razor.css" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Pages/BrandDetailsPublic.razor.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Pages/Brands/Create.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Pages/Brands/Create.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Pages/Brands/Edit.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Pages/Brands/Edit.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Components/Pages/Brands/Index.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Pages/Brands/Index.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Pages/Home.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Pages/Home.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SustainabilityWebApp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/SustainabilityWebApp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wwwroot/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/app.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,9 +56,14 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;.NET Launch Settings Profile.SustainabilityWebApp: http.executor&quot;: &quot;Run&quot;,
+    &quot;Azure - Web App.ASDsad.executor&quot;: &quot;Run&quot;,
     &quot;Azure - Web App.AzureSustainability.executor&quot;: &quot;Run&quot;,
     &quot;Azure - Web App.Publish SustainabilityWebApp to Azure (1).executor&quot;: &quot;Run&quot;,
+    &quot;Azure - Web App.Publish SustainabilityWebApp to Azure (2).executor&quot;: &quot;Run&quot;,
+    &quot;Azure - Web App.Publish SustainabilityWebApp to Azure (3).executor&quot;: &quot;Run&quot;,
+    &quot;Azure - Web App.Publish SustainabilityWebApp to Azure (4).executor&quot;: &quot;Run&quot;,
     &quot;Azure - Web App.Publish SustainabilityWebApp to Azure.executor&quot;: &quot;Run&quot;,
+    &quot;Azure - Web App.Sustain.executor&quot;: &quot;Run&quot;,
     &quot;Azure - Web App.Sustainability.executor&quot;: &quot;Run&quot;,
     &quot;Azure - Web App.SustainabilityApp.executor&quot;: &quot;Run&quot;,
     &quot;Azure - Web App.SustainabilityWeb.executor&quot;: &quot;Run&quot;,
@@ -77,6 +92,21 @@
   }
 }</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.SustainabilityWebApp: http">
+    <configuration name="ASDsad" type="AzureWebAppDeploy">
+      <option name="appServicePlanName" value="asp-app-250711133012" />
+      <option name="appServicePlanResourceGroupName" value="rg-app-250711133012" />
+      <option name="operatingSystem" value="Windows" />
+      <option name="pricingSize" value="F1" />
+      <option name="pricingTier" value="Free" />
+      <option name="projectConfiguration" value="Release" />
+      <option name="projectPlatform" value="Any CPU" />
+      <option name="publishableProjectPath" value="$PROJECT_DIR$/SustainabilityWebApp.csproj" />
+      <option name="region" value="centralus" />
+      <option name="resourceGroupName" value="rg-app-250711133012" />
+      <option name="subscriptionId" value="47f0b40f-7a8b-4231-8895-93346f5204a3" />
+      <option name="webAppName" value="app-250711133012" />
+      <method v="2" />
+    </configuration>
     <configuration name="AzureSustainability" type="AzureWebAppDeploy">
       <option name="appServicePlanName" value="ASP-SustainabilityWebApp-bc11" />
       <option name="appServicePlanResourceGroupName" value="SustainabilityWebApp" />
@@ -98,6 +128,51 @@
       <option name="publishableProjectPath" value="$PROJECT_DIR$/SustainabilityWebApp.csproj" />
       <method v="2" />
     </configuration>
+    <configuration name="Publish SustainabilityWebApp to Azure (2)" type="AzureWebAppDeploy">
+      <option name="appServicePlanName" value="ASP-SustainabilityWebApp-992a" />
+      <option name="appServicePlanResourceGroupName" value="SustainabilityWebApp" />
+      <option name="operatingSystem" value="Windows" />
+      <option name="pricingSize" value="F1" />
+      <option name="pricingTier" value="Free" />
+      <option name="projectConfiguration" value="Release" />
+      <option name="projectPlatform" value="Any CPU" />
+      <option name="publishableProjectPath" value="$PROJECT_DIR$/SustainabilityWebApp.csproj" />
+      <option name="region" value="westeurope" />
+      <option name="resourceGroupName" value="SustainabilityWebApp" />
+      <option name="subscriptionId" value="47f0b40f-7a8b-4231-8895-93346f5204a3" />
+      <option name="webAppName" value="sustainabilityapp" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Publish SustainabilityWebApp to Azure (3)" type="AzureWebAppDeploy">
+      <option name="appServicePlanName" value="ASP-SustainabilityWebApp-992a" />
+      <option name="appServicePlanResourceGroupName" value="SustainabilityWebApp" />
+      <option name="operatingSystem" value="Windows" />
+      <option name="pricingSize" value="F1" />
+      <option name="pricingTier" value="Free" />
+      <option name="projectConfiguration" value="Release" />
+      <option name="projectPlatform" value="Any CPU" />
+      <option name="publishableProjectPath" value="$PROJECT_DIR$/SustainabilityWebApp.csproj" />
+      <option name="region" value="westeurope" />
+      <option name="resourceGroupName" value="SustainabilityWebApp" />
+      <option name="subscriptionId" value="47f0b40f-7a8b-4231-8895-93346f5204a3" />
+      <option name="webAppName" value="sustainabilityapp" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Publish SustainabilityWebApp to Azure (4)" type="AzureWebAppDeploy">
+      <option name="appServicePlanName" value="ASP-SustainabilityWebApp-992a" />
+      <option name="appServicePlanResourceGroupName" value="SustainabilityWebApp" />
+      <option name="operatingSystem" value="Windows" />
+      <option name="pricingSize" value="F1" />
+      <option name="pricingTier" value="Free" />
+      <option name="projectConfiguration" value="Release" />
+      <option name="projectPlatform" value="Any CPU" />
+      <option name="publishableProjectPath" value="$PROJECT_DIR$/SustainabilityWebApp.csproj" />
+      <option name="region" value="westeurope" />
+      <option name="resourceGroupName" value="SustainabilityWebApp" />
+      <option name="subscriptionId" value="47f0b40f-7a8b-4231-8895-93346f5204a3" />
+      <option name="webAppName" value="sustainabilityapp" />
+      <method v="2" />
+    </configuration>
     <configuration name="Publish SustainabilityWebApp to Azure" type="AzureWebAppDeploy">
       <option name="appServicePlanName" value="asp-app-250708232925" />
       <option name="appServicePlanResourceGroupName" value="rg-app-250708232925" />
@@ -111,6 +186,21 @@
       <option name="resourceGroupName" value="rg-app-250708232925" />
       <option name="subscriptionId" value="47f0b40f-7a8b-4231-8895-93346f5204a3" />
       <option name="webAppName" value="app-250708232925" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Sustain" type="AzureWebAppDeploy">
+      <option name="appServicePlanName" value="ASP-SustainabilityWebApp-992a" />
+      <option name="appServicePlanResourceGroupName" value="SustainabilityWebApp" />
+      <option name="operatingSystem" value="Windows" />
+      <option name="pricingSize" value="F1" />
+      <option name="pricingTier" value="Free" />
+      <option name="projectConfiguration" value="Release" />
+      <option name="projectPlatform" value="Any CPU" />
+      <option name="publishableProjectPath" value="$PROJECT_DIR$/SustainabilityWebApp.csproj" />
+      <option name="region" value="westeurope" />
+      <option name="resourceGroupName" value="SustainabilityWebApp" />
+      <option name="subscriptionId" value="47f0b40f-7a8b-4231-8895-93346f5204a3" />
+      <option name="webAppName" value="sustainabilityapp" />
       <method v="2" />
     </configuration>
     <configuration name="Sustainability" type="AzureWebAppDeploy">
@@ -177,6 +267,7 @@
     <configuration name="Sustainable" type="AzureWebAppDeploy">
       <option name="appServicePlanName" value="ASP-SustainabilityWebApp-992a" />
       <option name="appServicePlanResourceGroupName" value="SustainabilityWebApp" />
+      <option name="openBrowser" value="true" />
       <option name="operatingSystem" value="Windows" />
       <option name="pricingSize" value="F1" />
       <option name="pricingTier" value="Free" />
@@ -267,6 +358,11 @@
     <list>
       <item itemvalue=".NET Launch Settings Profile.SustainabilityWebApp: http" />
       <item itemvalue=".NET Launch Settings Profile.SustainabilityWebApp: https" />
+      <item itemvalue="Azure - Web App.ASDsad" />
+      <item itemvalue="Azure - Web App.Publish SustainabilityWebApp to Azure (2)" />
+      <item itemvalue="Azure - Web App.Publish SustainabilityWebApp to Azure (3)" />
+      <item itemvalue="Azure - Web App.Publish SustainabilityWebApp to Azure (4)" />
+      <item itemvalue="Azure - Web App.Sustain" />
       <item itemvalue="Azure - Web App.AzureSustainability" />
       <item itemvalue="Azure - Web App.Publish SustainabilityWebApp to Azure" />
       <item itemvalue="Azure - Web App.Publish SustainabilityWebApp to Azure (1)" />
@@ -300,6 +396,7 @@
       <workItem from="1752098157651" duration="12000" />
       <workItem from="1752098182537" duration="5138000" />
       <workItem from="1752136570568" duration="20420000" />
+      <workItem from="1752233024191" duration="1261000" />
     </task>
     <servers />
   </component>

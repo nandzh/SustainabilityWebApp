@@ -13,12 +13,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-builder.Services.AddSingleton(x =>
-{
-    var connectionString = builder.Configuration["AzureEmail:ConnectionString"];
-    return new EmailClient(connectionString);
-});
-
 builder.Services.AddCascadingAuthenticationState();
 builder.Services.AddScoped<IdentityUserAccessor>();
 builder.Services.AddScoped<IdentityRedirectManager>();
@@ -68,7 +62,7 @@ builder.Services.AddAuthorization(options =>
 
 var azureAdSection = builder.Configuration.GetSection("AzureAd");
 
-builder.Services.AddAuthentication().AddMicrosoftAccount("Admin Sign in", microsoftOptions =>
+builder.Services.AddAuthentication().AddMicrosoftAccount("Microsoft", microsoftOptions =>
 {
     var clientId = builder.Configuration["AzureAd:ClientId"];
     var clientSecret = builder.Configuration["AzureAd:ClientSecret"];
@@ -116,9 +110,10 @@ else
     app.UseHsts();
 }
 
-app.UseAntiforgery();
+
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseAntiforgery();
 app.MapStaticAssets();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();

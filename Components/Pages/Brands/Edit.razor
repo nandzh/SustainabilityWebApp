@@ -67,11 +67,11 @@ else
                     <label for="rating" class="form-label">Rating:</label>
                     <InputSelect id="rating" @bind-Value="Brand.Rated" class="form-control">
                         <option value="">-- Select a rating --</option>
-                        <option value="We avoid">Terrible</option>
-                        <option value="Not good enough">Bad</option>
-                        <option value="Getting There">Getting There</option>
+                        <option value="We avoid">We avoid</option>
+                        <option value="Not good enough">Not good enough</option>
+                        <option value="It's a start">It's a start</option>
                         <option value="Good">Good</option>
-                        <option value="Great">Amazing</option>
+                        <option value="Great">Great</option>
                     </InputSelect>
                     <ValidationMessage For="() => Brand.Rated" class="text-danger" />
                 </div>
@@ -80,7 +80,6 @@ else
                     <InputText id="logoUrl" @bind-Value="Brand.LogoUrl" class="form-control" />
                     <ValidationMessage For="() => Brand.LogoUrl" class="text-danger" />
                 </div>
-
                 <button type="submit" class="btn btn-primary">Save</button>
             </EditForm>
         </div>
