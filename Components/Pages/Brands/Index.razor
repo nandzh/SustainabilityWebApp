@@ -7,6 +7,7 @@
 @using SustainabilityWebApp.Data
 @implements IAsyncDisposable
 @inject IDbContextFactory<SustainabilityWebApp.Data.SustainabilityWebAppContext> DbFactory
+@attribute [Authorize(Policy = "OnlyMe")]
 
 <PageTitle>Index</PageTitle>
 

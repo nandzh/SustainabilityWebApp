@@ -9,11 +9,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b974dc2e-aad7-4a74-bae2-363ad44c423d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Components/Account/Pages/Logout.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/Pages/BrandDetailsPublic.razor.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Components/Pages/Test.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/EmailSender.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SustainabilityWebApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SustainabilityWebApp/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Components/Layout/NavMenu.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Layout/NavMenu.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Pages/Brands/Index.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Pages/Brands/Index.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SustainabilityWebApp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/SustainabilityWebApp.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -297,7 +299,7 @@
       <workItem from="1752097952594" duration="5000" />
       <workItem from="1752098157651" duration="12000" />
       <workItem from="1752098182537" duration="5138000" />
-      <workItem from="1752136570568" duration="4137000" />
+      <workItem from="1752136570568" duration="20420000" />
     </task>
     <servers />
   </component>

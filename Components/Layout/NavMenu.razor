@@ -60,8 +60,10 @@
 </div>
 
 @code {
+    
     private string? currentUrl;
-
+    
+    
     protected override void OnInitialized()
     {
         currentUrl = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);

@@ -1,0 +1,43 @@
+﻿@page "/claims"
+@using System.Security.Claims
+@using Microsoft.AspNetCore.Authorization
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@attribute [Authorize]
+
+<h3>User Claims</h3>
+
+@if (!isAuthenticated)
+{
+    <p><em>You are not logged in.</em></p>
+}
+else if (!claims.Any())
+{
+    <p><em>No claims found for the authenticated user.</em></p>
+}
+else
+{
+    <ul>
+        @foreach (var claim in claims)
+        {
+            <li><b>@claim.Type:</b> @claim.Value</li>
+        }
+    </ul>
+}
+
+@code {
+    private IEnumerable<Claim> claims = Array.Empty<Claim>();
+    private bool isAuthenticated;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        isAuthenticated = user.Identity?.IsAuthenticated ?? false;
+
+        if (isAuthenticated)
+        {
+            claims = user.Claims;
+        }
+    }
+}

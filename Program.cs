@@ -4,70 +4,107 @@ using Microsoft.EntityFrameworkCore;
 using SustainabilityWebApp.Components;
 using SustainabilityWebApp.Components.Account;
 using SustainabilityWebApp.Data;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Identity.UI.Services;
-using Microsoft.Identity.Web;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
-using Microsoft.AspNetCore.Authentication.Cookies;
+using Azure.Communication.Email;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var sustainabilityConnectionString = builder.Configuration.GetConnectionString("SustainabilityWebAppContext")
-    ?? throw new InvalidOperationException("Connection string 'SustainabilityWebAppContext' not found.");
+// Add services to the container.
+builder.Services.AddRazorComponents()
+    .AddInteractiveServerComponents();
 
-builder.Services.AddDbContextFactory<SustainabilityWebAppContext>(options =>
-    options.UseSqlServer(sustainabilityConnectionString));
+builder.Services.AddSingleton(x =>
+{
+    var connectionString = builder.Configuration["AzureEmail:ConnectionString"];
+    return new EmailClient(connectionString);
+});
 
-builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-builder.Services.AddQuickGridEntityFrameworkAdapter();
-builder.Services.AddRazorComponents().AddInteractiveServerComponents();
 builder.Services.AddCascadingAuthenticationState();
-
 builder.Services.AddScoped<IdentityUserAccessor>();
 builder.Services.AddScoped<IdentityRedirectManager>();
 builder.Services.AddScoped<AuthenticationStateProvider, IdentityRevalidatingAuthenticationStateProvider>();
 
 builder.Services.AddAuthentication(options =>
+    {
+        options.DefaultScheme = IdentityConstants.ApplicationScheme;
+        options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
+    })
+    .AddIdentityCookies();
+var schemaId = builder.Configuration["AzureAd:SchemaId"];
+/*
+builder.Services.AddAuthorization(options =>
 {
-    options.DefaultScheme = IdentityConstants.ApplicationScheme;
-    options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
-})
-.AddCookie(IdentityConstants.ApplicationScheme)
-.AddCookie(IdentityConstants.ExternalScheme) 
-.AddMicrosoftIdentityWebApp(builder.Configuration.GetSection("AzureAd"));
+    options.AddPolicy("OnlyMe", policy =>
+        policy.RequireClaim("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier",
+            schemaId?? throw new InvalidOperationException("schemaId now found")));
+});
+*/
 
-builder.Services.ConfigureApplicationCookie(options =>
+var allowedIds = builder.Configuration
+    .GetSection("Authorization:AllowedUserIds")
+    .Get<List<string>>() ?? throw new InvalidOperationException("AllowedUserIds not found");
+
+builder.Services.AddAuthorization(options =>
 {
-    options.LoginPath = "/Components/Account/Pages/Login";
-    options.LogoutPath = "/Components/Account/Pages/Logout";
-    options.AccessDeniedPath = "/Components/Account/Pages/AccessDenied";
+    options.AddPolicy("OnlyMe", policy =>
+        policy.RequireAssertion(context =>
+        {
+            var userId = context.User.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier")?.Value;
+            return userId != null && allowedIds.Contains(userId);
+        }));
 });
 
-//authentication
-builder.Services.Configure<CookiePolicyOptions>(options =>
+
+
+builder.Services.Configure<OpenIdConnectOptions>(OpenIdConnectDefaults.AuthenticationScheme, options =>
 {
-    options.MinimumSameSitePolicy = SameSiteMode.None;
-    options.Secure = CookieSecurePolicy.Always;
+    options.TokenValidationParameters.RoleClaimType = "roles";
+});
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("Admin", policy => policy.RequireRole("Admin"));
+});
+
+var azureAdSection = builder.Configuration.GetSection("AzureAd");
+
+builder.Services.AddAuthentication().AddMicrosoftAccount("Admin Sign in", microsoftOptions =>
+{
+    var clientId = builder.Configuration["AzureAd:ClientId"];
+    var clientSecret = builder.Configuration["AzureAd:ClientSecret"];
+    microsoftOptions.ClientId = clientId ?? throw new InvalidOperationException("ClientId is null");
+    microsoftOptions.ClientSecret = clientSecret ?? throw new InvalidOperationException("ClientSecret is missing.");
 });
 
 
-builder.Services.AddIdentityCore<ApplicationUser>(options =>
-    options.SignIn.RequireConfirmedAccount = true)
+var sustainabilityConnectionString = builder.Configuration.GetConnectionString("SustainabilityWebAppContext")
+                                     ?? throw new InvalidOperationException("Connection string 'SustainabilityWebAppContext' not found.");
+
+builder.Services.AddDbContextFactory<SustainabilityWebAppContext>(options =>
+    options.UseSqlServer(sustainabilityConnectionString));
+
+
+builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<SustainabilityWebAppContext>()
     .AddSignInManager()
     .AddDefaultTokenProviders();
+builder.Services.AddQuickGridEntityFrameworkAdapter();
+
 
 builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
 
 builder.Services.AddHttpContextAccessor();
 
+
 var app = builder.Build();
 
+/* 
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     SeedData.SeedFromExcel(services, "Data/Sustainability_rates 1.xlsx");
 }
+*/
 
 if (app.Environment.IsDevelopment())
 {
@@ -78,15 +115,13 @@ else
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
     app.UseHsts();
 }
-app.UseHttpsRedirection();
+
 app.UseAntiforgery();
-app.UseCookiePolicy();
-
-app.UseAuthentication();   
+app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapStaticAssets();
-app.MapRazorComponents<App>().AddInteractiveServerRenderMode();
+app.MapRazorComponents<App>()
+    .AddInteractiveServerRenderMode();
 app.MapAdditionalIdentityEndpoints();
 
 app.Run();

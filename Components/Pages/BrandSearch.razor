@@ -152,7 +152,7 @@
             if (!string.IsNullOrWhiteSpace(searchTerm))
             {
                 var results = await context.Brand
-                    .Where(b => b.Name.Contains(searchTerm))
+                    .Where(b => b.Name.Contains(searchTerm)) 
                     .OrderBy(b => b.Name)
                     .ToListAsync();
 
